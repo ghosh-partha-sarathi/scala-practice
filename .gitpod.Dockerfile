@@ -9,5 +9,5 @@ RUN sudo sh -c '(echo "#!/usr/bin/env sh" && curl -L https://github.com/lihaoyi/
 # installing version manager for scala
 RUN brew install scalaenv
 
-# sample statement installing scala version 2.13.8
-RUN scalaenv install scala-3.1.3 && scalaenv global scala-3.1.3
+# sample statement installing scala version 3.0.0
+RUN scalaenv install scala3-3.0.0 && scalaenv global scala3-3.0.0
