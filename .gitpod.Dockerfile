@@ -10,4 +10,4 @@ RUN sudo sh -c '(echo "#!/usr/bin/env sh" && curl -L https://github.com/lihaoyi/
 RUN brew install scalaenv
 
 # sample statement installing scala version 2.13.8
-RUN scalaenv install scala-2.13.8 && scalaenv global scala-2.13.8
+RUN scalaenv install scala-3.1.3 && scalaenv global scala-3.1.3
