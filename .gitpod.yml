@@ -4,3 +4,4 @@ image:
 vscode:
   extensions:
     - scala-lang.scala
+    - scalameta.metals
