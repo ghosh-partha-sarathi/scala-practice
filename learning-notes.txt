@@ -1,0 +1,126 @@
+Immutability
+Expressions - Expressions yield values, e.g. a+b, a*b
+Statements - Statements execute an action but does not yield any value, e.g. printing a value
+ *'if' condition in Scala is expression as it yields a value 
+
+Pure vs Impure Functions
+    - Functions which always returns same output for a given set of input are called "Pure Functions"
+        e.g.- Function adding integers
+    - Functions which may return different output for a given set of input are called "Impure Functions" 
+        e.g.- making an API call
+
+Higher Order Functions
+    - Function which takes another function as argument.
+
+Referential Transparency
+
+There are two types of variables in Scala "var" and "val"
+val = value of this kind of variables cannot be changed once declared. Helps in immutability.
+var - value of this kind of variables can be changed in the program after declaration.
+
+Loops
+  - Scala has two kinds of loops "while" and "for"
+  - for loops are preferred over while in Scala
+  - Two kinds of for loops in Scala "Imperative" and "Functional"
+
+Imperative loops-
+ - They perform some action using statements inside the loop but doesn't return any value.
+
+Functional loops-
+ - They return value using expressions within the loop.
+
+Functions-
+ - We don't need to explicitly write return statement in Scala.
+   The last expression is the return value of function.   
+ - Return type is optional in Scala functions.
+ - Anonymous Functions - also known as Function literals 
+ - Function literals are called so because entire function implementation is written instead of passing reference of function.   
+   They are generally used where a function is used only once.
+ - anonymous function structure
+            (arg1: Int, arg2: Int) => arg1 * arg2
+
+ Higher Order Function:
+ - e.g. "filter" is a higher order function of List class.
+   def filter(p: (A) => Boolean):List[A]  
+      -> filter takes a function as an argument(denoted by 'p', known as predicate)
+         predicate takes argument of type A and it has return type as Boolean
+         return type of filter is List of A  
+ * Underscore uses the argument on the left side only once.
+   If the input on the left side of arrow is used only once in the right side of the arrow,
+   the input variable name and arrow can be replaced with an underscore("_")
+   e.g.
+   aList.filter(anElem => anElem.value == 0)
+   is equivalent to    aList.filter(_.value == 0)  
+
+Classes:
+ - Companion Objects
+   - They share same name as the class
+   - starts with keyword "object"
+   - companion objects are singleton in nature. We can have multiple instances of a class
+     but its companion object will be only one
+   - live in the same source file as class
+   - companion object and the corresponding class can access each others private members
+  We can create new instances of class using "apply" method in companion objects.    
+  If apply method is written inside companion object new instances can be created without using "new" keyword.
+
+  Case Classes
+   When a case class is created, the compiler -
+   - Adds the companion object with "apply" method.
+   - makes all arguments immutable
+   - adds "copy" method to create copy of objects
+   - adds "hashCode" and "equals" method, which are used to compare objects of class
+   - adds "toString" method to print String representation of class  
+
+Error Handling
+ There are multiple ways to handle error results in Scala. Some of which are-
+  1. Option, Some(value), None
+  2. import scala.util.{Try, Sucess, Failure}
+      Try computes a result, successful computations are returned as Success while exceptions are returned as Failure
+      Success(value)
+      Failure(error)
+  3. Either    
+     Either represents two cases "Left" and "Right"
+     successful computation is wrapped as Right
+     absence of result is wrapped as Left
+
+Pattern Matching:
+ - Revisit use of '_' in pattern matching
+ - Revisit Pattern guard syntax
+
+* Collections
+ - Scala collections are classified mainly into two types Immutable and Mutable.
+   There are two collection packages available in Scala-
+    scala.collection.immutable
+    scala.collection.mutable
+ - Any collection can be found in both packages however, Scala by default imports collections from immutable package
+ Collections available in Scala are-
+    Sequence
+      - IndexedSeq
+      - LinearSeq
+    Set
+      - SortedSet
+      - BitSet
+    Map
+      - SortedMap
+          They keys are sorted.
+
+ Lists
+  Lists in scala are linked lists. Methods available in List are-
+  - list.head
+      gives head(first element) of the list
+  - list.tail
+      gives list except the head
+  - list.init
+      gives list except the last element
+  - list.last
+      gives last element of the list
+  - list.drop(no. of elems)
+      removes elements from list from Left
+  - list.dropRight(no. of elems)
+      removes elements from list from Right
+  - list.dropWhile(predicate)
+      removes all elements as long as the predicate matches
+  There are other list API's, to be studied             
+
+ Sets
+  
